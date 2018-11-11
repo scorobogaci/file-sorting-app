@@ -1,0 +1,10 @@
+{
+  "platform": "linux64",
+  "jdk": "C:/Program Files/Java/jdk1.8.0_144",
+  "executable": "file-sort",
+  "classpath": [
+    "E:/dev-projects/filesort/target/file-sort-jar-with-dependencies.jar"
+  ],
+  "mainclass": "com.iscorobogaci.MainApplication",
+  "output": "linux-app"
+}
