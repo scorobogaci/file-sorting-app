@@ -6,5 +6,6 @@
     "E:/dev-projects/filesort/target/file-sort-jar-with-dependencies.jar"
   ],
   "mainclass": "com.iscorobogaci.MainApplication",
-  "output": "mac-app"
+  "output": "mac-app",
+  "minimizejre": "soft"
 }
