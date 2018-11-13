@@ -31,7 +31,6 @@ public class DirectoryController {
     @FXML
     private ToggleGroup radioGroup;
 
-
     private DirectoryChooser directoryChooser;
     private File sourceFolder;
     private File destinationFolder;
@@ -79,7 +78,6 @@ public class DirectoryController {
             clearTextAreaFields();
         }
     }
-
 
     @FXML
     public void handleToggleButton(ActionEvent actionEvent) {

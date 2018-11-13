@@ -1,5 +1,8 @@
-package com.iscorobogaci;
+package com.iscorobogaci.console;
 
+import com.iscorobogaci.FileExceptionHandler;
+import com.iscorobogaci.FileSorter;
+import com.iscorobogaci.InputValidator;
 import com.iscorobogaci.enums.SortingBy;
 
 import java.awt.*;
@@ -12,9 +15,9 @@ import java.util.logging.Logger;
 
 import static com.iscorobogaci.ClientMessage.*;
 
-public class MainApplication {
+public class ConsoleApplication {
 
-    private static final Logger CONSOLE_LOGGER = Logger.getLogger(MainApplication.class.getName());
+    private static final Logger CONSOLE_LOGGER = Logger.getLogger(ConsoleApplication.class.getName());
 
     public static void main(String[] args) {
         CONSOLE_LOGGER.info(BRAND_LOGO);
@@ -26,7 +29,6 @@ public class MainApplication {
         SortingBy sortingBy = SortingBy.valueOf(args[2]);
         performSort(sourcePath, destinationPath, sortingBy);
         openDestinationDirectory(new File(destinationPath.toString()));
-        CONSOLE_LOGGER.info(FINISH_CLIENT_MESSAGE.concat(Quotes.getRandomQuote()));
     }
 
     private static void validateProgramArguments(String[] args) {

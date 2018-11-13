@@ -46,7 +46,7 @@
                 <configuration>
                     <archive>
                         <manifest>
-                            <mainClass>com.iscorobogaci.MainApplication</mainClass>
+                            <mainClass>com.iscorobogaci.console.ConsoleApplication</mainClass>
                         </manifest>
                     </archive>
                     <descriptorRefs>
