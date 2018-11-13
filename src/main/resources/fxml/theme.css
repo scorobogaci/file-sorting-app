@@ -1,0 +1,26 @@
+* {
+    -fx-primary: #27BB9A;
+    -fx-secondary: #B7B7B7;
+}
+
+.root {
+}
+
+.button {
+    -fx-text-fill: white;
+    -fx-background-color: -fx-primary;
+}
+
+.login-button {
+    -fx-border-color: -fx-primary;
+    -fx-border-radius: 20px;
+    -fx-background-radius: 20px;
+}
+.label{
+    -fx-text-fill: black;
+}
+
+.text-area{
+    -fx-border-color: -fx-primary;
+    -fx-border-radius: 5px;
+}
