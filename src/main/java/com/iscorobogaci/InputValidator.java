@@ -14,13 +14,13 @@ public class InputValidator {
         try {
             SortingBy.valueOf(thirdArg);
         } catch (IllegalArgumentException e) {
-            throw new IllegalArgumentException(ClientMessage.INVALID_SORTING_BY_ARGUMENT.concat(thirdArg).concat(ClientMessage.SORTING_BY_VALID_FORMAT));
+            throw new IllegalArgumentException(ConsoleMessage.INVALID_SORTING_BY_ARGUMENT.concat(thirdArg).concat(ConsoleMessage.SORTING_BY_VALID_FORMAT));
         }
         if (!Files.isDirectory(sourcePath)) {
-            throw new IllegalArgumentException(ClientMessage.INVALID_SOURCE_PATH_MESSAGE.concat(sourcePath.toString()).concat(ClientMessage.PATH_FORMAT));
+            throw new IllegalArgumentException(ConsoleMessage.INVALID_SOURCE_PATH_MESSAGE.concat(sourcePath.toString()).concat(ConsoleMessage.PATH_FORMAT));
         }
         if (!Files.isDirectory(destinationPath)) {
-            throw new IllegalArgumentException(ClientMessage.INVALID_DESTINATION_PATH_MESSAGE.concat(destinationPath.toString()).concat(ClientMessage.PATH_FORMAT));
+            throw new IllegalArgumentException(ConsoleMessage.INVALID_DESTINATION_PATH_MESSAGE.concat(destinationPath.toString()).concat(ConsoleMessage.PATH_FORMAT));
         }
     }
 }

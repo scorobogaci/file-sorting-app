@@ -2,7 +2,7 @@ package com.iscorobogaci.enums;
 
 public enum PatternMatcher {
     IMAGE("glob:**.{jpg,jpeg}"),
-    VIDEO("glob:**.{mp4,mov}");
+    VIDEO("glob:**.{mp4}");
 
     private String regex;
 

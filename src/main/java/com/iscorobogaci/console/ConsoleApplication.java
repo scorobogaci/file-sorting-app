@@ -13,7 +13,7 @@ import java.nio.file.Paths;
 import java.util.logging.Level;
 import java.util.logging.Logger;
 
-import static com.iscorobogaci.ClientMessage.*;
+import static com.iscorobogaci.ConsoleMessage.*;
 
 public class ConsoleApplication {
 

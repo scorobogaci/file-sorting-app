@@ -24,7 +24,7 @@ public class FileExceptionHandler {
             fileHandler = new FileHandler(EXCEPTION_LOG_FILE);
             fileHandler.setFormatter(simpleFormatter);
         } catch (IOException e) {
-            LOGGER.log(Level.SEVERE, ClientMessage.IO_OPERATIONS_ERROR_MESSAGE);
+            LOGGER.log(Level.SEVERE, ConsoleMessage.IO_OPERATIONS_ERROR_MESSAGE);
         }
     }
 
