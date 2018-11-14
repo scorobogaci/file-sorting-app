@@ -20,12 +20,14 @@ public class FileSorter {
     private Path destinationRootDirectory;
     private SortingBy sortingBy;
 
+
     public FileSorter(Path sourceRootDirectory, Path destinationRootDirectory, SortingBy sortingBy) {
         this.sourceRootDirectory = sourceRootDirectory;
         this.destinationRootDirectory = destinationRootDirectory;
         this.sortingBy = sortingBy;
     }
 
+    //used only in tests at the moment
     public void copy() throws IOException {
         Stream<Path> sourceFiles = Files.list(sourceRootDirectory);
 
@@ -35,12 +37,13 @@ public class FileSorter {
                     try {
                         performCopy(sourcePath);
                     } catch (ImageProcessingException e) {
+                        e.printStackTrace();
                         FileExceptionHandler.getInstance().logException(e);
                     }
                 });
     }
 
-    private void performCopy(Path sourcePath) throws ImageProcessingException {
+    public void performCopy(Path sourcePath) throws ImageProcessingException {
         try {
             DestinationResolver destinationResolver;
             PathMatcher imagePathMatcher = getDefault().getPathMatcher(PatternMatcher.IMAGE.value());
@@ -69,6 +72,5 @@ public class FileSorter {
             Files.createDirectories(destinationPath);
         }
     }
-
 }
 

@@ -9,12 +9,7 @@ import java.io.File;
 import java.io.IOException;
 import java.nio.file.Files;
 import java.nio.file.Path;
-import java.time.DayOfWeek;
-import java.time.LocalDate;
-import java.time.temporal.TemporalAdjusters;
-import java.time.temporal.WeekFields;
 import java.util.List;
-import java.util.Locale;
 import java.util.Objects;
 import java.util.stream.Collectors;
 
@@ -68,21 +63,6 @@ public class FileSorterTest {
     }
 
     @Test
-    public void testCopyMOVVideoMetaData() throws Exception {
-        //video file has creation date : 2005-10-16
-        loadData("video/mov_video.mov");
-
-        new FileSorter(sourcePath, destinationPath, SortingBy.WEEK).copy();
-
-        assertNumberOfCreatedFolders(3);
-
-        assertFileNameAndLocation("mov_video.mov");
-
-        assertDestinationPath(DestinationFolder.VIDEO, "2005-10-16");
-
-    }
-
-    @Test
     public void testUnsupportedFileTypeCopy() throws Exception {
         loadData("pictures/home.png");
 
@@ -106,7 +86,6 @@ public class FileSorterTest {
 
         assertDestinationPath(DestinationFolder.PICTURES, "2018-10-01");
     }
-
 
     private void assertFileNameAndLocation(String fileName) throws IOException {
         List<Path> files = Files.walk(destinationPath)

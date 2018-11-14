@@ -23,7 +23,7 @@ public class VideoDestinationResolver extends DestinationResolver {
     private RootPathResolver rootPathResolver;
     private SortingBy sortingBy;
 
-    protected VideoDestinationResolver(Path rootDirectory, SortingBy sortingBy) {
+    public VideoDestinationResolver(Path rootDirectory, SortingBy sortingBy) {
         super(rootDirectory);
         this.rootPathResolver = new RootPathResolver();
         this.sortingBy = sortingBy;

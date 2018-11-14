@@ -2,6 +2,7 @@
 
 <?import javafx.scene.control.Button?>
 <?import javafx.scene.control.Label?>
+<?import javafx.scene.control.ProgressBar?>
 <?import javafx.scene.control.RadioButton?>
 <?import javafx.scene.control.TextField?>
 <?import javafx.scene.control.ToggleGroup?>
@@ -9,11 +10,11 @@
 
 <AnchorPane fx:id="anchorId" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="249.0" prefWidth="462.0" stylesheets="@theme.css" xmlns="http://javafx.com/javafx/10.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.iscorobogaci.fx.DirectoryController">
    <children>
+      <Button fx:id="startButton" layoutX="49.0" layoutY="195.0" mnemonicParsing="false" onAction="#handleStartButton" prefHeight="25.0" prefWidth="366.0" styleClass="login-button" text="Start" />
       <TextField fx:id="textAreaSourceFolder" editable="false" focusTraversable="false" layoutX="181.0" layoutY="43.0" prefHeight="25.0" prefWidth="237.0" promptText="No file chosen" styleClass="text-area" />
       <Button layoutX="49.0" layoutY="43.0" mnemonicParsing="false" onAction="#handleSourceFolderButton" prefHeight="25.0" prefWidth="129.0" text="Choose Folder" />
       <Button layoutX="49.0" layoutY="102.0" mnemonicParsing="false" onAction="#handleDestinationFolderButton" prefHeight="25.0" prefWidth="129.0" text="Choose Folder" />
       <TextField fx:id="textAreaDestinationFolder" editable="false" focusTraversable="false" layoutX="181.0" layoutY="102.0" prefHeight="25.0" prefWidth="237.0" promptText="No file chosen" styleClass="text-area" />
-      <Button layoutX="49.0" layoutY="195.0" mnemonicParsing="false" onAction="#handleStartButton" prefHeight="25.0" prefWidth="366.0" styleClass="login-button" text="Start" />
       <RadioButton layoutX="53.0" layoutY="164.0" mnemonicParsing="false" onAction="#handleToggleButton" selected="true" text="WEEK">
          <toggleGroup>
             <ToggleGroup fx:id="radioGroup" />
@@ -23,5 +24,6 @@
       <Label layoutX="51.0" layoutY="18.0" text="Select source folder" />
       <Label layoutX="52.0" layoutY="80.0" text="Select output folder" />
       <Label layoutX="53.0" layoutY="140.0" text="Grouping By" />
+      <ProgressBar fx:id="progressBar" layoutX="49.0" layoutY="200.0" prefHeight="18.0" prefWidth="366.0" progress="0.0" visible="false" />
    </children>
 </AnchorPane>

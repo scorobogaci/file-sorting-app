@@ -24,7 +24,7 @@ public class ImageDestinationResolver extends DestinationResolver {
     private RootPathResolver rootPathResolver;
     private SortingBy sortingBy;
 
-    protected ImageDestinationResolver(Path rootDirectory, SortingBy sortingBy) {
+    public ImageDestinationResolver(Path rootDirectory, SortingBy sortingBy) {
         super(rootDirectory);
         this.rootPathResolver = new RootPathResolver();
         this.sortingBy = sortingBy;

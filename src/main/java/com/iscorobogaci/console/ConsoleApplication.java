@@ -50,7 +50,7 @@ public class ConsoleApplication {
     }
 
     private static void performSort(Path sourcePath, Path destinationPath, SortingBy sortingBy) {
-        FileSorter fileSorter = new FileSorter(sourcePath, destinationPath,sortingBy);
+        FileSorter fileSorter = new FileSorter(sourcePath, destinationPath, sortingBy);
         try {
             fileSorter.copy();
         } catch (IOException e) {

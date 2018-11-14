@@ -5,10 +5,9 @@ import com.iscorobogaci.FileSorter;
 import com.iscorobogaci.enums.SortingBy;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
-import javafx.scene.control.Alert;
-import javafx.scene.control.RadioButton;
+import javafx.scene.control.*;
+import javafx.scene.control.Button;
 import javafx.scene.control.TextField;
-import javafx.scene.control.ToggleGroup;
 import javafx.scene.layout.AnchorPane;
 import javafx.stage.DirectoryChooser;
 import javafx.stage.Stage;
@@ -16,6 +15,12 @@ import javafx.stage.Stage;
 import java.awt.*;
 import java.io.File;
 import java.io.IOException;
+import java.nio.file.Files;
+import java.nio.file.Path;
+import java.util.List;
+import java.util.concurrent.ExecutorService;
+import java.util.concurrent.Executors;
+import java.util.stream.Collectors;
 
 public class DirectoryController {
 
@@ -31,11 +36,18 @@ public class DirectoryController {
     @FXML
     private ToggleGroup radioGroup;
 
+    @FXML
+    private ProgressBar progressBar;
+
+    @FXML
+    private Button startButton;
+
     private DirectoryChooser directoryChooser;
     private File sourceFolder;
     private File destinationFolder;
-    private SortingBy sortingBy;
+    private SortingBy sortingBy = SortingBy.WEEK;
 
+    private CopyFileTask copyFileTask;
 
     public DirectoryController() {
         directoryChooser = new DirectoryChooser();
@@ -64,18 +76,11 @@ public class DirectoryController {
     }
 
     @FXML
-    private void handleStartButton(ActionEvent actionEvent) {
+    private void handleStartButton(ActionEvent actionEvent) throws IOException {
         if (isSourceFolderNotSelected() || isDestinationFolderNotSelected()) {
             raiseAlert();
         } else {
-            FileSorter fileSorter = new FileSorter(sourceFolder.toPath(), destinationFolder.toPath(), sortingBy);
-            try {
-                fileSorter.copy();
-                openDestinationDirectoryInExplorer();
-            } catch (IOException e) {
-                FileExceptionHandler.getInstance().logException(e);
-            }
-            clearTextAreaFields();
+            performSortingOnBackgroundThread();
         }
     }
 
@@ -91,6 +96,36 @@ public class DirectoryController {
         } catch (IOException e) {
             FileExceptionHandler.getInstance().logException(e);
         }
+    }
+
+    private void performSortingOnBackgroundThread() throws IOException {
+
+        FileSorter fileSorter = new FileSorter(sourceFolder.toPath(), destinationFolder.toPath(), sortingBy);
+
+        List<Path> inputFiles = Files.list(sourceFolder.toPath())
+                .filter(path -> Files.isRegularFile(path))
+                .collect(Collectors.toList());
+
+        copyFileTask = new CopyFileTask(inputFiles, fileSorter);
+
+        copyFileTask.setOnRunning((successEvent) -> {
+            startButton.setVisible(false);
+            progressBar.setVisible(true);
+            progressBar.progressProperty().bind(copyFileTask.progressProperty());
+        });
+
+        copyFileTask.setOnSucceeded((successEvent) -> {
+            startButton.setVisible(true);
+            progressBar.setVisible(false);
+            clearTextAreaFields();
+            openDestinationDirectoryInExplorer();
+            progressBar.progressProperty().unbind();
+            progressBar.setProgress(0);
+        });
+
+        ExecutorService executorService = Executors.newFixedThreadPool(1);
+        executorService.execute(copyFileTask);
+        executorService.shutdown();
     }
 
     private boolean isSourceFolderNotSelected() {
@@ -113,5 +148,4 @@ public class DirectoryController {
         textAreaSourceFolder.clear();
         textAreaDestinationFolder.clear();
     }
-
 }
