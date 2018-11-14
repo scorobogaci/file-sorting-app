@@ -16,11 +16,16 @@
     -fx-border-radius: 20px;
     -fx-background-radius: 20px;
 }
-.label{
+
+.label {
     -fx-text-fill: black;
 }
 
-.text-area{
+.text-area {
     -fx-border-color: -fx-primary;
     -fx-border-radius: 5px;
+}
+
+.green-bar {
+    -fx-accent: -fx-primary;
 }
