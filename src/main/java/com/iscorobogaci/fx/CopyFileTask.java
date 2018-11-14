@@ -23,7 +23,6 @@ public class CopyFileTask extends Task<List<Path>> {
         int progress = 0;
         for (Path file : files) {
             copied.add(file);
-            System.out.println(file.toString());
             fileSorter.performCopy(file);
             progress++;
             this.updateProgress(progress, files.size());

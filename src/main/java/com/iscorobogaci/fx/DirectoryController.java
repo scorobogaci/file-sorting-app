@@ -22,6 +22,13 @@ import java.util.concurrent.ExecutorService;
 import java.util.concurrent.Executors;
 import java.util.stream.Collectors;
 
+//todo
+//finish progressbar UI
+//refactor thread to use streams
+//add icon
+//validate exception logging
+//adjust tests
+
 public class DirectoryController {
 
     @FXML
@@ -138,6 +145,8 @@ public class DirectoryController {
 
     private void raiseAlert() {
         Alert alert = new Alert(Alert.AlertType.INFORMATION);
+        Stage alertStage = (Stage) alert.getDialogPane().getScene().getWindow();
+        alertStage.getIcons().add(FxApplication.setApplicationIcon());
         alert.setTitle("Information");
         alert.setHeaderText("We need your input to process the files :)");
         alert.setContentText("Please select source folder and output folder.");
