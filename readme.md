@@ -6,15 +6,15 @@ It takes as input a source folder with pictures/video and gives the output as so
 
 ![Screenshot](https://github.com/scorobogaci/file-sorting-app/blob/master/src/main/resources/screenshots/application-start.PNG)
 
-- Select source folder and destination folder :
+Select source folder and destination folder :
 
 ![Screenshot](https://github.com/scorobogaci/file-sorting-app/blob/master/src/main/resources/screenshots/application-input.PNG)
 
-- Application will start to process your files and show you the progress 
+Application will start to process your files and show you the progress 
 
 ![Screenshot](https://github.com/scorobogaci/file-sorting-app/blob/master/src/main/resources/screenshots/application-progress.PNG)
 
-- Once done, destination folder is opened
+Once done, destination folder is opened
 
 # Download 
 Application can be downloaded here
