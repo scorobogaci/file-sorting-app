@@ -22,12 +22,6 @@ import java.util.concurrent.ExecutorService;
 import java.util.concurrent.Executors;
 import java.util.stream.Collectors;
 
-//todo
-//finish progressbar UI
-//refactor thread to use streams
-//add icon
-//validate exception logging
-//adjust tests
 
 public class DirectoryController {
 

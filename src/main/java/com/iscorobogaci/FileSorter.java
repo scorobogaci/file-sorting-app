@@ -27,7 +27,7 @@ public class FileSorter {
         this.sortingBy = sortingBy;
     }
 
-    //used only in tests at the moment
+    //used only by console application now
     public void copy() throws IOException {
         Stream<Path> sourceFiles = Files.list(sourceRootDirectory);
 
