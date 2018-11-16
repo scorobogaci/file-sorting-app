@@ -1,7 +1,7 @@
 # File-Sort
 File-Sort is a Java based Desktop app which helps people to arrange their pictures and videos in a separate folders by WEEK or MONTH.
 It takes as input a source folder with pictures/video and gives the output as sorted folders with pictures and video.
-[insert picture]
+![Screenshot](https://github.com/scorobogaci/file-sorting-app/blob/master/src/main/resources/screenshots/application-input.PNG)
 
 # Download 
 Application can be downloaded here
