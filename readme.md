@@ -24,7 +24,7 @@ IOS :
 
 # Technologies
 
-File sort uses the folowing libraries :
+File sort uses the following libraries :
 
 * Java 8 - Java 8 Development Kit!
 * packr - Used for packaging the JAR, assets and a JVM for distribution on Windows, Linux and Mac OS X
