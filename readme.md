@@ -43,6 +43,11 @@ Build the project
 ```sh
 $ mvn clean install
 ```
+For packaging the project for all distributive Windows,Linux or MAC OS
+
+```sh
+$ mvn clean install -Pwindows-profile,linux-profile,mac-profile
+```
 
 # Todos
 
