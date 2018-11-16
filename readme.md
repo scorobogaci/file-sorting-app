@@ -41,6 +41,8 @@ $ mvn clean install
 # Todos
 
  - Write MORE Tests
+ - Add capability to compress the files in zip or other format for different distributive
+ - Integrate it with Travis CI
 
    [dill]: <https://github.com/joemccann/dillinger>
    [git-repo-url]: <https://github.com/joemccann/dillinger.git>
